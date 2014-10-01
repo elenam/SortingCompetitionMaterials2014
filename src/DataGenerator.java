@@ -5,12 +5,15 @@ public class DataGenerator {
 	 * Data consists of strings of 0s and 1s, where
 	 * - the length of the string is determined by Poisson distribution: 
 	 *   http://en.wikipedia.org/wiki/Poisson_distribution#Generating_Poisson-distributed_random_variables
-	 * 
+	 * - in each string each character is 0 or 1 with equal probability.
 	 * @param args
 	 */
 	public static void main(String[] args) {		
 		int length = generateLength();
 		System.out.println("length = " + length);
+		System.out.println(generateCharacter());
+		
+		System.out.println(generateString());
 	}
 	
 	private static int generateLength() {
@@ -28,6 +31,18 @@ public class DataGenerator {
 		return k;
 	}
 	
+	private static char generateCharacter() {
+		int i = (int) Math.round(Math.random());
+		return (char) ('0' + i);
+	}
 	
+	private static String generateString() {
+		int length = generateLength();
+		StringBuffer str = new StringBuffer(length);
+		for (int i = 0; i < length; ++i) {
+			str.append(generateCharacter()); 
+		}
+		return str.toString();
+	}
 
 }
