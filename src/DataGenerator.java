@@ -56,14 +56,6 @@ public class DataGenerator {
 		}
 			
 	}
-	
-	private static void generateAndWriteOutput(PrintWriter out, int n,
-			double lambda) {
-		for (int i = 0; i < n; ++i) {
-			out.println(generateString(lambda));
-		}
-		out.close();
-	}
 
 	private static int generatePoisson(double lambda) {
 		double L = Math.exp(-lambda);
@@ -99,6 +91,14 @@ public class DataGenerator {
 		for (int i = 0; i < n; ++i) {
 			System.out.println(generateString(lambda));
 		}
+	}
+	
+	private static void generateAndWriteOutput(PrintWriter out, int n,
+			double lambda) {
+		for (int i = 0; i < n; ++i) {
+			out.println(generateString(lambda));
+		}
+		out.close();
 	}
 
 }
