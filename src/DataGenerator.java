@@ -8,16 +8,21 @@ public class DataGenerator {
 	 * - in each string each character is 0 or 1 with equal probability.
 	 * @param args
 	 */
-	public static void main(String[] args) {		
-		int length = generateLength();
+	
+	// to do: maybe change lambda to be a command arg, if supplied, and 
+	// some default value otherwise
+	// also need to specify the number of elements, perhaps as a command 
+	// arg as well
+	public static void main(String[] args) {
+		double lambda = 4.0;
+		int length = generatePoisson(lambda);
 		System.out.println("length = " + length);
 		System.out.println(generateCharacter());
 		
-		System.out.println(generateString());
+		System.out.println(generateString(lambda));
 	}
 	
-	private static int generateLength() {
-		double lambda = 30.0;
+	private static int generatePoisson(double lambda) {
 		double L = Math.exp(-lambda);
 		int k = 1;
 		double p = 1;
@@ -36,8 +41,10 @@ public class DataGenerator {
 		return (char) ('0' + i);
 	}
 	
-	private static String generateString() {
-		int length = generateLength();
+	private static String generateString(double lambda) {
+		int p1 = generatePoisson(lambda);
+		int p2 = generatePoisson(lambda);
+		int length = p1 * p2;
 		StringBuffer str = new StringBuffer(length);
 		for (int i = 0; i < length; ++i) {
 			str.append(generateCharacter()); 
