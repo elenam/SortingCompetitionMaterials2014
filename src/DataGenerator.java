@@ -1,3 +1,10 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.Writer;
+
 
 public class DataGenerator {
 	/**
@@ -8,38 +15,59 @@ public class DataGenerator {
 	 *   http://en.wikipedia.org/wiki/Poisson_distribution#Generating_Poisson-distributed_random_variables
 	 * - in each string each character is 0 or 1 with equal probability.
 	 * @param args:
-	 * 	arg[0] is the number of elements to sort
-	 *  arg[1] is the parameter for the Poisson distribution
-	 *  Both arguments are optional. If there is only one argument, it is interpreted the number of elements. 
-	 *  If one or both arguments are not provided, defaults are used. 
-	 *  
-	 *  The program outputs the generated strings to standard output.
+	 *  arg[0] is the file name for the generated data 
+	 * 	arg[1] is the number of elements to sort
+	 *  arg[2] is the parameter for the Poisson distribution
+	 *  Both arguments are optional. If there is only one argument, it is interpreted as the file name;
+	 *  if there are only two, the second one is interpreted as the number of elements. 
+	 *  If some arguments are not provided, defaults are used. If no file name is provided or if the
+	 *  file name is given as "nofile", the output goes to standard output.
 	 *  
 	 *  Author: elenam 
 	 */
 	
 	public static void main(String[] args) {
-		double defaultLambda = 4.0;
+		double defaultLambda = 3.5;
 		int defaultN = 50000;
 		double lambda = defaultLambda;
-		int n = defaultN;		
+		int n = defaultN;	
+		String filename = "nofile";
 		
 		if (args.length >= 1) {
-			n = Integer.parseInt(args[0]);
+			filename = args[0];
 		}
 		
-		if (args.length >= 2){
-			lambda = Double.parseDouble(args[1]);
+		if (args.length >= 2) {
+			n = Integer.parseInt(args[1]);
+		}
+		
+		if (args.length >= 3){
+			lambda = Double.parseDouble(args[2]);
 		}
 				
-		System.out.println("n = " + n + " lambda = " + lambda);
+		System.out.println("file = " + filename + " n = " + n + " lambda = " + lambda);
 
-		for (int i = 0; i < n; ++i) {
-			System.out.println(generateString(lambda));
+		// the output goes to the standard output (console)
+		if (filename.equals("nofile")) {
+			writeOutputStandardOut(n, lambda);
+		} else { //output goes to a file 
+			try {
+				generateAndWriteOutput(new PrintWriter(filename), n, lambda);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}			
 		}
 			
 	}
 	
+	private static void generateAndWriteOutput(PrintWriter out, int n,
+			double lambda) {
+		for (int i = 0; i < n; ++i) {
+			out.println(generateString(lambda));
+		}
+		out.close();
+	}
+
 	private static int generatePoisson(double lambda) {
 		double L = Math.exp(-lambda);
 		int k = 1;
@@ -68,6 +96,12 @@ public class DataGenerator {
 			str.append(generateCharacter()); 
 		}
 		return str.toString();
+	}
+	
+	private static void writeOutputStandardOut(int n, double lambda) {
+		for (int i = 0; i < n; ++i) {
+			System.out.println(generateString(lambda));
+		}
 	}
 
 }
