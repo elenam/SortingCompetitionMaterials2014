@@ -2,7 +2,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 
-
 public class DataGenerator {
 	/**
 	 * Competition data is generated as follows: 
