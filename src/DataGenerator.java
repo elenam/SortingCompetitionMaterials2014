@@ -3,23 +3,41 @@ public class DataGenerator {
 	/**
 	 * Competition data is generated as follows: 
 	 * Data consists of strings of 0s and 1s, where
-	 * - the length of the string is determined by Poisson distribution: 
+	 * - the length of the string is determined by multiplying two variables 
+	 *   generated using Poisson distribution: 
 	 *   http://en.wikipedia.org/wiki/Poisson_distribution#Generating_Poisson-distributed_random_variables
 	 * - in each string each character is 0 or 1 with equal probability.
-	 * @param args
+	 * @param args:
+	 * 	arg[0] is the number of elements to sort
+	 *  arg[1] is the parameter for the Poisson distribution
+	 *  Both arguments are optional. If there is only one argument, it is interpreted the number of elements. 
+	 *  If one or both arguments are not provided, defaults are used. 
+	 *  
+	 *  The program outputs the generated strings to standard output.
+	 *  
+	 *  Author: elenam 
 	 */
 	
-	// to do: maybe change lambda to be a command arg, if supplied, and 
-	// some default value otherwise
-	// also need to specify the number of elements, perhaps as a command 
-	// arg as well
 	public static void main(String[] args) {
-		double lambda = 4.0;
-		int length = generatePoisson(lambda);
-		System.out.println("length = " + length);
-		System.out.println(generateCharacter());
+		double defaultLambda = 4.0;
+		int defaultN = 50000;
+		double lambda = defaultLambda;
+		int n = defaultN;		
 		
-		System.out.println(generateString(lambda));
+		if (args.length >= 1) {
+			n = Integer.parseInt(args[0]);
+		}
+		
+		if (args.length >= 2){
+			lambda = Double.parseDouble(args[1]);
+		}
+				
+		System.out.println("n = " + n + " lambda = " + lambda);
+
+		for (int i = 0; i < n; ++i) {
+			System.out.println(generateString(lambda));
+		}
+			
 	}
 	
 	private static int generatePoisson(double lambda) {
