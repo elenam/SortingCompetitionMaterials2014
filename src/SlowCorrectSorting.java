@@ -43,6 +43,9 @@ public class SlowCorrectSorting {
 		Scanner in;
 		try {
 			in = new Scanner(new File(inputFileName));
+			// the first item in the file is lambda
+			double lambda = in.nextDouble();
+			System.out.println(lambda);
 			while (in.hasNext()) {
 				input.add(in.next());
 			}
