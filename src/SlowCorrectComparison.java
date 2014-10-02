@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 
@@ -21,6 +23,16 @@ public class SlowCorrectComparison {
 		String outFileName = args[1];
 		
 		String [] toSort = readInData(inputFileName);
+		
+		sort(toSort);
+		
+		for (String str: toSort) {
+			System.out.println(str);
+		}
+	}
+	
+	private static void sort(String [] toSort) {
+		Arrays.sort(toSort, new StringComparator());
 	}
 
 	private static String[] readInData(String inputFileName) {
@@ -31,15 +43,51 @@ public class SlowCorrectComparison {
 			while (in.hasNext()) {
 				input.add(in.next());
 			}
+			in.close();
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		System.out.println(input);
+		//System.out.println(input);
 
 		return input.toArray(new String[0]); // convert to array of strings
+	}
+	
+	/**
+	 * The comparator is provides a comparison method for string
+	 * The strings will be sorted by the following:
+	 * the sum of 1s in the string (in increasing order),
+	 * within each sum,  by length (in increasing order),
+	 * within each group as determined above, alphabetically.
+	 * @author elenam
+	 *
+	 */
+	// the inner class has to be static because it is used in a static method 
+	private static class StringComparator implements Comparator<String> {
+
+		@Override
+		public int compare(String str1, String str2) {
+			int sum1 = sumOnes(str1);
+			int sum2 = sumOnes(str2);
+			if (sum1 != sum2) {
+				return (sum1 - sum2);
+			}
+			// only get here if the sums are equal
+			if (str1.length() != str2.length()) {
+				return str1.length() - str2.length();
+			}
+			return str1.compareTo(str2);
+		}
+		
+		private int sumOnes(String str) {
+			int count = 0;
+			for (int i = 0; i < str.length(); ++i) {
+				count += str.charAt(i) - '0';
+			}
+			return count;
+		}
+		
 	}
 
 }
