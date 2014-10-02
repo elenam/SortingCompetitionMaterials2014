@@ -90,15 +90,17 @@ public class SlowCorrectSorting {
 
 		@Override
 		public int compare(String str1, String str2) {
+			if (str1.length() != str2.length()) {
+				return str1.length() - str2.length();
+			}
+			
+			// only get here if the lengths are equal
 			int sum1 = sumOnes(str1);
 			int sum2 = sumOnes(str2);
 			if (sum1 != sum2) {
 				return (sum1 - sum2);
 			}
-			// only get here if the sums are equal
-			if (str1.length() != str2.length()) {
-				return str1.length() - str2.length();
-			}
+			
 			// only get here if the sum and the length are equal
 			return str1.compareTo(str2);
 		}
