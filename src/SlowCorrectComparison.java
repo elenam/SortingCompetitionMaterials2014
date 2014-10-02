@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -26,14 +27,14 @@ public class SlowCorrectComparison {
 		
 		sort(toSort);
 		
+		//debugging print:
 		for (String str: toSort) {
 			System.out.println(str);
 		}
+		
+		writeOutResult(toSort,outFileName);
 	}
 	
-	private static void sort(String [] toSort) {
-		Arrays.sort(toSort, new StringComparator());
-	}
 
 	private static String[] readInData(String inputFileName) {
 		ArrayList<String> input = new ArrayList<String>();
@@ -54,8 +55,24 @@ public class SlowCorrectComparison {
 		return input.toArray(new String[0]); // convert to array of strings
 	}
 	
+	private static void sort(String [] toSort) {
+		Arrays.sort(toSort, new StringComparator());
+	}
+	
+	private static void writeOutResult(String [] sorted, String outputFilename) {
+		try {
+			PrintWriter out = new PrintWriter(outputFilename);
+			for (String str: sorted) {
+				out.println(str);
+			}
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**
-	 * The comparator is provides a comparison method for string
+	 * The comparator provides a comparison method for strings
 	 * The strings will be sorted by the following:
 	 * the sum of 1s in the string (in increasing order),
 	 * within each sum,  by length (in increasing order),
