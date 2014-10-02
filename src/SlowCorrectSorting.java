@@ -16,11 +16,7 @@ import java.util.Scanner;
 
 public class SlowCorrectSorting {
 
-	public static void main(String[] args) {
-		// reading from a file 
-		// write a comparator, call Arrays.sort
-		// output into a file
-		
+	public static void main(String[] args) {		
 		if (args.length < 2) {
 			System.out.println("Please run with two command line arguments: input and output file names");
 			System.exit(0);
@@ -100,6 +96,7 @@ public class SlowCorrectSorting {
 			if (str1.length() != str2.length()) {
 				return str1.length() - str2.length();
 			}
+			// only get here if the sum and the length are equal
 			return str1.compareTo(str2);
 		}
 		
