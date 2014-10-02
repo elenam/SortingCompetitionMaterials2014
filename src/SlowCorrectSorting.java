@@ -79,8 +79,8 @@ public class SlowCorrectSorting {
 	/**
 	 * The comparator provides a comparison method for strings
 	 * The strings will be sorted by the following:
-	 * the sum of 1s in the string (in increasing order),
-	 * within each sum,  by length (in increasing order),
+	 * by length (in increasing order),
+	 * within each length, by the sum of all ones (also in increasing order)
 	 * within each group as determined above, alphabetically.
 	 * @author elenam
 	 *
