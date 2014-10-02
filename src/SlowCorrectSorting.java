@@ -6,9 +6,15 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
+/**
+ * The class implements inefficient, but correct, sorting
+ * according to the comparison defined in the comparator.
+ * 
+ * @author elenam
+ *
+ */
 
-
-public class SlowCorrectComparison {
+public class SlowCorrectSorting {
 
 	public static void main(String[] args) {
 		// reading from a file 
