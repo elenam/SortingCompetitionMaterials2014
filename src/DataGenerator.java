@@ -87,6 +87,7 @@ public class DataGenerator {
 	}
 	
 	private static void writeOutputStandardOut(int n, double lambda) {
+		System.out.println(lambda);
 		for (int i = 0; i < n; ++i) {
 			System.out.println(generateString(lambda));
 		}
@@ -94,6 +95,7 @@ public class DataGenerator {
 	
 	private static void generateAndWriteOutput(PrintWriter out, int n,
 			double lambda) {
+		out.println(lambda);
 		for (int i = 0; i < n; ++i) {
 			out.println(generateString(lambda));
 		}
