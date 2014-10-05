@@ -45,7 +45,7 @@ public class DataGenerator {
 
 		// the output goes to the standard output (console)
 		if (filename.equals("nofile")) {
-			writeOutputStandardOut(n, lambda);
+			generateAndWriteOutputStandardOut(n, lambda);
 		} else { //output goes to a file 
 			try {
 				generateAndWriteOutput(new PrintWriter(filename), n, lambda);
@@ -86,7 +86,7 @@ public class DataGenerator {
 		return str.toString();
 	}
 	
-	private static void writeOutputStandardOut(int n, double lambda) {
+	private static void generateAndWriteOutputStandardOut(int n, double lambda) {
 		System.out.println(lambda);
 		for (int i = 0; i < n; ++i) {
 			System.out.println(generateString(lambda));
