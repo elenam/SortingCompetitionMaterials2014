@@ -1,0 +1,133 @@
+file = in3.txt n = 10000 lambda = 7.0
+
+ Group0: 
+
+Results of diff:
+
+
+ Group1: 
+
+Time: 258
+Time: 281
+Time: 260
+Results of diff:
+
+
+ Group2: 
+
+352
+352
+335
+Results of diff:
+
+Files outRun2Group2.txt and outRun2Group0.txt differ
+
+ Group3: 
+
+The sort took about 608 milliseconds.
+The sort took about 541 milliseconds.
+The sort took about 502 milliseconds.
+Results of diff:
+
+
+ Group4: 
+
+882
+821
+930
+Results of diff:
+
+
+ Group5: 
+
+7.0
+Time: 321 milliseconds
+7.0
+Time: 346 milliseconds
+7.0
+Time: 350 milliseconds
+Results of diff:
+
+
+ Group6: 
+
+305
+353
+351
+Results of diff:
+
+
+ Group7: 
+
+7.0
+Time to compute: 214ms
+7.0
+Time to compute: 229ms
+7.0
+Time to compute: 270ms
+Results of diff:
+
+
+ Group8: 
+
+Time for 21 run-throughs is 323
+Time for 21 run-throughs is 320
+Time for 21 run-throughs is 316
+Results of diff:
+
+
+ Group9: 
+
+time for 20 loops: 1054
+time for 20 loops: 986
+time for 20 loops: 988
+Results of diff:
+
+Files outRun2Group9.txt and outRun2Group0.txt differ
+
+ Group10: 
+
+7.0
+Our total time: 558.0
+7.0
+Our total time: 552.0
+7.0
+Our total time: 538.0
+Results of diff:
+
+
+ Group11: 
+
+Total time:326
+Total time:334
+Total time:330
+Results of diff:
+
+
+ Group12: 
+
+1372
+1323
+1279
+Results of diff:
+
+
+ Group13: 
+
+7.0
+Total time = 422 milliseconds.
+7.0
+Total time = 418 milliseconds.
+7.0
+Total time = 360 milliseconds.
+Results of diff:
+
+Files outRun2Group13.txt and outRun2Group0.txt differ
+
+ Group14: 
+
+566.0
+558.0
+547.0
+Results of diff:
+
