@@ -41,7 +41,7 @@ public class DataGenerator {
 			lambda = Double.parseDouble(args[2]);
 		}
 				
-		System.out.println("file = " + filename + " n = " + n + " lambda = " + lambda);
+		System.out.println("Generating data: file = " + filename + " n = " + n + " lambda = " + lambda);
 
 		// the output goes to the standard output (console)
 		if (filename.equals("nofile")) {
