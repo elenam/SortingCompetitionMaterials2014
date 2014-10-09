@@ -30,9 +30,9 @@ public class SlowCorrectSorting {
 		sort(toSort);
 		
 		//debugging print:
-		for (String str: toSort) {
-			System.out.println(str);
-		}
+//		for (String str: toSort) {
+//			System.out.println(str);
+//		}
 		
 		writeOutResult(toSort,outFileName);
 	}
@@ -45,7 +45,7 @@ public class SlowCorrectSorting {
 			in = new Scanner(new File(inputFileName));
 			// the first item in the file is lambda
 			double lambda = in.nextDouble();
-			System.out.println(lambda);
+			//System.out.println(lambda);
 			while (in.hasNext()) {
 				input.add(in.next());
 			}
