@@ -1,0 +1,126 @@
+Running lambda =  0.2 with 100000 elements, 10 loops
+
+
+ Group0: 
+
+Results of diff:
+
+
+ Group1: 
+
+102
+Time: 497
+102
+Time: 517
+102
+Time: 508
+Results of diff:
+
+
+ Group2: 
+
+14655
+14707
+14707
+Results of diff:
+
+
+ Group3: 
+
+The sort took about 1257 milliseconds.
+The sort took about 1236 milliseconds.
+The sort took about 1226 milliseconds.
+Results of diff:
+
+
+ Group4: 
+
+508
+511
+463
+Results of diff:
+
+
+ Group5: 
+
+Time: 1451 milliseconds
+Time: 1385 milliseconds
+Time: 1281 milliseconds
+Results of diff:
+
+
+ Group6: 
+
+10
+484
+10
+436
+10
+399
+Results of diff:
+
+
+ Group7: 
+
+Time to compute: 1.276s
+Time to compute: 1.234s
+Time to compute: 1.206s
+Results of diff:
+
+
+ Group8: 
+
+Results of diff:
+
+
+ Group9: 
+
+time for 10 loops: 2101
+time for 10 loops: 2074
+time for 10 loops: 2150
+Results of diff:
+
+Files outRun1Group9.txt and outRun1Group0.txt differ
+
+ Group10: 
+
+0.2
+Our total time: 336.0
+0.2
+Our total time: 377.0
+0.2
+Our total time: 405.0
+Results of diff:
+
+
+ Group11: 
+
+Total time:15250
+Total time:15244
+Total time:15325
+Results of diff:
+
+
+ Group12: 
+
+1786
+1761
+1803
+Results of diff:
+
+
+ Group13: 
+
+Total time = 910 milliseconds.
+Total time = 833 milliseconds.
+Total time = 892 milliseconds.
+Results of diff:
+
+
+ Group14: 
+
+671.0
+642.0
+615.0
+Results of diff:
+
