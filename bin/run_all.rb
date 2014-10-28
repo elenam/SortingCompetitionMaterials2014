@@ -23,8 +23,6 @@ def medianOfThree arr
   end
 end
 
-#def sortByMedians 
-
 groups = 15 # number of groups (including group 0 which is the sample sorting)
 loops = [20, 10, 20]
 elements = [10000, 50000, 10000]
@@ -58,6 +56,16 @@ lambdas.length.times do |r|
     system("echo 'Results of diff:\n' >> #{resultsFile}")
     system("diff --ignore-all-space --brief outRun#{r + 1}Group#{j}.txt outRun#{r + 1}Group0.txt >> #{resultsFile}")
 
+    ### matching the stderr to check correctness:
+    if $?.exitstatus == 1
+      system("echo 'The files outRun#{r + 1}Group#{j}.txt outRun#{r + 1}Group0.txt differ'")
+      # ignoring the times:
+      runTimes[r][j][3] = 1000000
+    else 
+      system("echo 'Sorting is correct'")
+    end
+
+    # ignoring output that's not a number:
     if runTimes[r][j][3] == 0 
       runTimes[r][j][3] = 1000000 # a large number if a group doesn't print time properly
     end
