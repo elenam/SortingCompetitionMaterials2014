@@ -25,7 +25,6 @@ end
 
 groups = 15 # number of groups (including group 0 which is the sample sorting)
 loops = [20, 10, 20]
-runs = 3
 elements = [10000, 50000, 10000]
 lambdas = [1.2] 
 inFileNames = ["in1.txt", "in2.txt", "in3.txt"]
@@ -45,7 +44,7 @@ lambdas.length.times do |r|
     system("echo 'Group#{j}\n'")
     system("echo '\n Group#{j}: \n' >> #{resultsFile}")
     runTimes[r][j] = []
-    runs.times do |k|
+    3.times do |k|
       runTimes[r][j][k] = `java Group#{j} #{inFileNames[r]} outRun#{r + 1}Group#{j}.txt #{loops[r]}` 
       system("echo '#{runTimes[r][j][k]}' >> #{resultsFile}")
     end
