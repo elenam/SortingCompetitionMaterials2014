@@ -62,14 +62,14 @@ lambdas.length.times do |r|
     if $?.exitstatus == 1
       system("echo 'The files outRun#{r + 1}Group#{j}.txt outRun#{r + 1}Group0.txt differ'")
       # ignoring the times:
-      runTimes[r][j][3] = 1000000
+      runTimes[r][j][3] = 100000.0
     else 
       system("echo 'Sorting is correct'")
     end
 
     # ignoring output that's not a number:
     if runTimes[r][j][3] == 0 
-      runTimes[r][j][3] = 1000000 # a large number if a group doesn't print time properly
+      runTimes[r][j][3] = 100000.0 # a large number if a group doesn't print time properly
     end
   end
   # processing the results
@@ -99,9 +99,12 @@ lambdas.length.times do |r|
   end
 end
 
-system("echo '#{results}'")
+system("echo 'By groups: #{results}'")
 
 # sort
+results.sort! {|group1, group2| if group1[1] == group2[1] then group1[2] <=> group2[2] else group1[1] <=> group2[1] end}
+
+system("echo 'By winners: #{results}'")
 
 # display the results and store them in a file
 
