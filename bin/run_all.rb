@@ -25,7 +25,7 @@ end
 
 groups = 15 # number of groups (including group 0 which is the sample sorting)
 loops = [20, 10, 20]
-elements = [10000, 50000, 10000]
+elements = [10000, 10000, 10000]
 lambdas = [1.2, 3.2] 
 inFileNames = ["in1.txt", "in2.txt", "in3.txt"]
 runTimes = []
@@ -49,6 +49,7 @@ lambdas.length.times do |r|
     3.times do |k|
       runTimes[r][j][k] = (`java Group#{j} #{inFileNames[r]} outRun#{r + 1}Group#{j}.txt #{loops[r]}`).to_f
       system("echo '#{runTimes[r][j][k]}' >> #{resultsFile}")
+      
     end
     system("echo 'Median: #{medianOfThree(runTimes[r][j])}' >> #{resultsFile}")
     runTimes[r][j][3] = medianOfThree(runTimes[r][j]) #store the median as the last element 
@@ -72,13 +73,13 @@ lambdas.length.times do |r|
       runTimes[r][j][3] = 100000.0 # a large number if a group doesn't print time properly
     end
   end
-  # processing the results
+  # processing the results of the run
   system("echo 'This is my array: #{runTimes[r]}'")
   sortedTimes[r] = (runTimes[r]).sort {|arr1, arr2| arr1[3] <=> arr2[3]}
   system("echo 'This is sorted array: #{sortedTimes[r]}'")
 end
 
-### TO_DO: determine the winner 
+# determine the winner
 
 # results[g][0] is the group number, results[g][1] is the 
 # sum of places, results[g][2] is the sum of medians
@@ -107,7 +108,13 @@ results.sort! {|group1, group2| if group1[1] == group2[1] then group1[2] <=> gro
 system("echo 'By winners: #{results}'")
 
 # display the results and store them in a file
+results.each_with_index {|group, place| 
+  str = "group #{group[0]} took place  #{place}. The sum of places is #{group[1]}, the sum of medians is #{group[2]}"
+  system("echo '#{str}'")
+  system("echo '#{str}\n' >> scoreboard.txt")
+}
 
+  
 
 
 
