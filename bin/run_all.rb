@@ -29,6 +29,7 @@ elements = [10000, 50000, 10000]
 lambdas = [1.2, 3.2] 
 inFileNames = ["in1.txt", "in2.txt", "in3.txt"]
 runTimes = []
+sortedTimes = []
 
 # loop over lambdas and elements
 
@@ -52,11 +53,12 @@ lambdas.length.times do |r|
     system("echo 'Median: #{medianOfThree(runTimes[r][j])}' >> #{resultsFile}")
     runTimes[r][j][3] = medianOfThree(runTimes[r][j]) #store the median as the last element 
     runTimes[r][j][4] = j #record the group number
-    ### TO-DO: disqualify those whose diff is non-empty
+
+    ### disqualify those whose diff is non-empty
     system("echo 'Results of diff:\n' >> #{resultsFile}")
     system("diff --ignore-all-space --brief outRun#{r + 1}Group#{j}.txt outRun#{r + 1}Group0.txt >> #{resultsFile}")
 
-    ### matching the stderr to check correctness:
+    # matching the stderr to check correctness:
     if $?.exitstatus == 1
       system("echo 'The files outRun#{r + 1}Group#{j}.txt outRun#{r + 1}Group0.txt differ'")
       # ignoring the times:
@@ -72,11 +74,44 @@ lambdas.length.times do |r|
   end
   # processing the results
   system("echo 'This is my array: #{runTimes[r]}'")
-  sortedTimes = (runTimes[r]).sort {|arr1, arr2| arr1[3] <=> arr2[3]}
-  system("echo 'This is sorted array: #{sortedTimes}'")
+  sortedTimes[r] = (runTimes[r]).sort {|arr1, arr2| arr1[3] <=> arr2[3]}
+  system("echo 'This is sorted array: #{sortedTimes[r]}'")
 end
 
 ### TO_DO: determine the winner 
+
+# results[g][0] is the group number, results[g][1] is the 
+# sum of places, results[g][2] is the sum of medians
+
+# initialize an array to zeros   
+results = Array.new(groups) { |i| Array.new(3) { |i| 0 }}
+
+# populate group numbers
+(0..groups-1).each do |i|
+  results[i][0] = i
+end
+
+# fill in the sums of places and medians
+lambdas.length.times do |r|
+  sortedTimes[r].length.times do |s|
+    results[sortedTimes[r][s][4]][1] += s + 1 # incrementing the group's total place by index in sortedTimes 
+    results[sortedTimes[r][s][4]][2] += sortedTimes[r][s][3]
+  end
+end
+
+system("echo '#{results}'")
+
+# sort
+
+# display the results and store them in a file
+
+
+
+
+
+
+
+
 
 
 
