@@ -24,10 +24,10 @@ def medianOfThree arr
 end
 
 groups = 16 # number of groups (including group 0 which is the sample sorting)
-loops = [20, 10, 20]
-elements = [10000, 10000, 10000]
-lambdas = [1.2, 3.2, 6.4] 
-inFileNames = ["in1.txt", "in2.txt", "in3.txt"]
+loops = [5, 5, 10]
+elements = [50000, 50000, 10000]
+lambdas = [0.03, 6.5, 7.5] 
+inFileNames = ["in6.txt", "in7.txt", "in8.txt"]
 runTimes = []
 sortedTimes = []
 
@@ -74,9 +74,9 @@ lambdas.length.times do |r|
     end
   end
   # processing the results of the run
-  system("echo 'This is my array: #{runTimes[r]}'")
+  #system("echo 'This is my array: #{runTimes[r]}'")
   sortedTimes[r] = (runTimes[r]).sort {|arr1, arr2| arr1[3] <=> arr2[3]}
-  system("echo 'This is sorted array: #{sortedTimes[r]}'")
+  #system("echo 'This is sorted array: #{sortedTimes[r]}'")
 end
 
 # determine the winner

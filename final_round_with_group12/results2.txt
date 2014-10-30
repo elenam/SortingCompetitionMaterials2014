@@ -1,0 +1,192 @@
+Running lambda =  6.5 with 50000 elements, 5 loops
+
+
+ Group 0: 
+
+
+
+
+Median: 0.0
+Results of diff:
+
+
+ Group 1: 
+
+267
+
+313
+
+288
+
+Median: 288.0
+Results of diff:
+
+
+ Group 2: 
+
+344
+
+341
+
+345
+
+Median: 344.0
+Results of diff:
+
+
+ Group 3: 
+
+275
+
+311
+
+313
+
+Median: 311.0
+Results of diff:
+
+
+ Group 4: 
+
+134
+
+124
+
+119
+
+Median: 124.0
+Results of diff:
+
+
+ Group 5: 
+
+296
+
+281
+
+273
+
+Median: 281.0
+Results of diff:
+
+
+ Group 6: 
+
+437
+
+349
+
+427
+
+Median: 427.0
+Results of diff:
+
+
+ Group 7: 
+
+288
+
+282
+
+289
+
+Median: 288.0
+Results of diff:
+
+
+ Group 8: 
+
+219
+
+222
+
+217
+
+Median: 219.0
+Results of diff:
+
+
+ Group 9: 
+
+246
+
+252
+
+249
+
+Median: 249.0
+Results of diff:
+
+
+ Group 10: 
+
+503.0
+
+519.0
+
+515.0
+
+Median: 515.0
+Results of diff:
+
+
+ Group 11: 
+
+318
+
+318
+
+329
+
+Median: 318.0
+Results of diff:
+
+
+ Group 12: 
+
+398
+
+397
+
+399
+
+Median: 398.0
+Results of diff:
+
+
+ Group 13: 
+
+704
+
+721
+
+685
+
+Median: 704.0
+Results of diff:
+
+
+ Group 14: 
+
+698.0
+
+703.0
+
+765.0
+
+Median: 703.0
+Results of diff:
+
+
+ Group 15: 
+
+470.0
+
+554.0
+
+595.0
+
+Median: 554.0
+Results of diff:
+
+Files outRun2Group15.txt and outRun2Group0.txt differ
